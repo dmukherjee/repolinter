@@ -27,7 +27,10 @@ module.exports.lint = function lint (targetDir, filterPaths = [], ruleset = null
   if (!ruleset) {
     let rulesetPath = findConfig('repolint.json', { cwd: targetDir })
     rulesetPath = rulesetPath || findConfig('repolinter.json', { cwd: targetDir })
-    rulesetPath = rulesetPath || path.join(__dirname, 'rulesets/default.json')
+    // path to default ruleset
+    // rulesetPath = rulesetPath || path.join(__dirname, 'rulesets/default.json')
+    //  path to custom ruleset
+    rulesetPath = rulesetPath || path.join(__dirname, 'rulesets/custom.json')
     exports.outputInfo(`Ruleset: ${path.relative(targetDir, rulesetPath)}`)
     ruleset = jsonfile.readFileSync(rulesetPath)
   }
